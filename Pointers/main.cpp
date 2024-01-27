@@ -30,21 +30,21 @@ int main() {
     int A[5] = {2,4,6,8,10};
     int *P;
     
-    P = A;
-    //OR p = &A[10];
+    P = A; //No need of & because Array is already pointing to the 1st element
+    //OR P = &A[0]; //Pointing to the first element
     
     cout << P << endl; // Address(stack) to the 1st element of the array
     
     for(int i=0; i<5; i++){
         
-        cout << P[i] << endl;
+        cout << P[i] << endl; //P acts as the name of the array, so no dereferencing
         //cout << A[i] << endl;
     }
     
     //Pointer to an array of integers in HEAP
     int *Q;
     Q  = (int *) malloc(5*sizeof(int));
-    //Q = new int[5];
+    //Q = new int[5]; //C++ syntax
     
     Q[0] = 11; Q[1] = 12; Q[2] = 13; Q[3] = 14; Q[4] = 15;
     
@@ -52,6 +52,7 @@ int main() {
         cout<< Q[i] <<endl;
     }
     
+    //Deallocating the memory
     delete [] Q; // For array [], else just the variable name
     //free(Q); This is in C
     
