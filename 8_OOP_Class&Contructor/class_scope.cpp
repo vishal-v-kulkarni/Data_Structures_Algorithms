@@ -1,59 +1,64 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Rectangle{
-    private:
-        int length;
-        int breadth;
-    
-    public:
-        
-        //Constructors
-        Rectangle(){length = breadth = 1;}
-        Rectangle(int l, int b);
+class Rectangle
+{
+private:
+    int length;
+    int breadth;
+    char *s;
 
-        //Facilitators - Manipulate data
-        int area();
-        int perimeter();
+public:
+    // Constructors
+    Rectangle() { length = breadth = 1; }
+    Rectangle(int l, int b);
 
-        //Accessors - Getter functions
-        int getLength(){ return length;}
-        int getBreadth(){ return breadth;}
+    // Facilitators - Manipulate data
+    int area();
+    int perimeter();
 
-        //Mutators - Setter functions
-        void setLength(int l) {length = l;}
-        void setBreadth(int b) {breadth = b;}
+    // Accessors - Getter functions
+    int getLength() { return length; }
+    int getBreadth() { return breadth; }
 
+    // Mutators - Setter functions
+    void setLength(int l) { length = l; }
+    void setBreadth(int b) { breadth = b; }
 
-        //Destructor
-        ~Rectangle();
-
+    // Destructor
+    ~Rectangle();
 };
 
-Rectangle::Rectangle(int l, int b){
+Rectangle::Rectangle(int l, int b)
+{
     length = l;
     breadth = b;
 }
 
-int Rectangle::area(){
-    return length*breadth;
+int Rectangle::area()
+{
+    return length * breadth;
 }
 
-int Rectangle::perimeter(){
-    return 2*(length+breadth);
+int Rectangle::perimeter()
+{
+    return 2 * (length + breadth);
 }
 
-Rectangle::~Rectangle(){
-    cout<<"Destructor"<<endl;
+Rectangle::~Rectangle()
+{
+    // free(s);
+    cout << "Destructor" << endl;
 }
 
-int main(){
-    Rectangle r(10,5);
+int main()
+{
+    Rectangle r(10, 5);
 
-    cout<<"Area: "<<r.area()<<endl;
-    cout<<"Perimeter: "<<r.perimeter()<<endl;
+    cout << "Area: " << r.area() << endl;
+    cout << "Perimeter: " << r.perimeter() << endl;
 
     r.setLength(20);
 
-    cout<<"Updated Length: "<<r.getLength()<<endl;
+    cout << "Updated Length: " << r.getLength() << endl;
 }
