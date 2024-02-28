@@ -3,6 +3,7 @@
 
 using namespace std;
 
+/* Tail Recursion */
 void fun1(int n){
     if(n > 0){
         cout<<"Fun 1: " << n << endl;
@@ -11,6 +12,7 @@ void fun1(int n){
 
 }
 
+/* Head Recursion */
 void fun2(int n){
     if(n > 0){
         fun2(n-1);
