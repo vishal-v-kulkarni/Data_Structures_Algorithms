@@ -3,16 +3,16 @@
 
 using namespace std;
 
-int fibonacci(int n){
+int factorial(int n){
     if(n == 0)
         return 1;
-    return n * fibonacci(n-1);
+    return n * factorial(n-1);
 }
 
 int main(){
-    int x=1;
+    int x=5;
 
-    int result = fibonacci(x);
+    int result = factorial(x);
     cout << result << endl;
 
     return 0;
