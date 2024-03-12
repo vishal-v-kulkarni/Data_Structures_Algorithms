@@ -19,6 +19,6 @@ double e(int x, int n){
 
 int main(){
 
-    cout << e(3, 10) << endl;
+    cout << e(2, 10) << endl;
     return 0;
 }
