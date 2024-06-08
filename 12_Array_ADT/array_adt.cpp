@@ -4,8 +4,11 @@
 
 using namespace std;
 
+// To make it easier to explain and visualize, static array used
+
 struct Array{
-    int *A;
+    //int *A;
+    int A[20];
     int size;
     int length;
 };
@@ -19,26 +22,7 @@ void Display(struct Array arr){
 
 int main(){
 
-    struct Array arr;
-    int n, i;
-
-    printf("Enter the size of the array\n");
-    scanf("%d", &arr.size);
-
-    // Allocate memory of specified size of the array on heap
-    arr.A = (int *) malloc(arr.size * sizeof(int));
-
-    // Initialize the length of the array
-    arr.length = 0;
-
-    printf("Enter the number of elements to be entered:\n");
-    scanf("%d", &n);
-    arr.length = n;
-
-    printf("Enter the elements of array\n");
-    for(i = 0; i < n; i++){
-        scanf("%d", &arr.A[i]);
-    }
+    struct Array arr = {{2,3,4,5,6}, 20, 5};
 
     Display(arr);
 
