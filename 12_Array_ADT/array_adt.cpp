@@ -82,15 +82,17 @@ int main(){
         arr.length++;
     } */
 
-    struct Array arr = {{2,3,4,5,6}, 10, 5};
-
-    Display(arr);
-
-    Append(&arr, 7);
-
-    Display(arr);
+    struct Array arr = {{1,2,3,4,5}, 10, 5};
     
-    Insert(&arr, 2, 8);
+    Insert(&arr, arr.length, 6); // 6th element
+    Insert(&arr, arr.length, 7); // 7th element
+    Insert(&arr, arr.length, 8); // 8th element
+    Insert(&arr, arr.length, 9); // 9th element
+    Insert(&arr, arr.length, 10); // 10th element
+
+    Display(arr);
+
+    Insert(&arr, arr.length, 11); // 11th element 
 
     Display(arr);
 
