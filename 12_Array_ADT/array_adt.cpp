@@ -62,6 +62,20 @@ void Insert(struct Array *arr, int index, int element){
     }
 }
 
+int Delete(struct Array *arr, int index){
+    int x=0;
+    if(index >= 0 && index < arr->length){
+        x = arr->A[arr->length-1];
+        for(int i=index; i<arr->length-1; i++){
+            arr->A[i] = arr->A[i+1];
+        }
+    
+        arr->A[arr->length-1] = 0;
+        arr->length--; 
+    }
+    return x;
+}
+
 int main(){
     // Dynamic Array Creation
     /* struct Array arr;
@@ -85,14 +99,10 @@ int main(){
     struct Array arr = {{1,2,3,4,5}, 10, 5};
     
     Insert(&arr, arr.length, 6); // 6th element
-    Insert(&arr, arr.length, 7); // 7th element
-    Insert(&arr, arr.length, 8); // 8th element
-    Insert(&arr, arr.length, 9); // 9th element
-    Insert(&arr, arr.length, 10); // 10th element
 
     Display(arr);
 
-    Insert(&arr, arr.length, 11); // 11th element 
+    Delete(&arr, 1);
 
     Display(arr);
 
