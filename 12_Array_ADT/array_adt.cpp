@@ -76,6 +76,29 @@ int Delete(struct Array *arr, int index){
     return x;
 }
 
+void Swap(int *elementOne, int *elementTwo){
+    
+    int Temp;
+    Temp = *elementOne;
+    *elementOne = *elementTwo;
+    *elementTwo = Temp;
+}
+
+int LinearSearch(struct Array *arr, int key){
+    for(int i=0; i < arr->length; i++){
+        if(key == arr->A[i]){
+            // Method 1: Transposition
+            // Swap(&arr->A[i], &arr->A[i-1]);
+            // return i-1;
+
+            //Method 2: Move to Head
+            Swap(&arr->A[i], &arr->A[0]);
+            return 0;
+        }
+    }
+    return -1;
+}
+
 int main(){
     // Dynamic Array Creation
     /* struct Array arr;
@@ -106,5 +129,12 @@ int main(){
 
     Display(arr);
 
+    int index = LinearSearch(&arr, 4);
+    if(index == -1)
+        cout << "Element not found!" << endl;
+    else    
+        cout<< "Element found at index " << index << endl;
+
+    Display(arr);
     return 0;
 }
