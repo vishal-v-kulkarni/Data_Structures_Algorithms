@@ -99,6 +99,24 @@ int LinearSearch(struct Array *arr, int key){
     return -1;
 }
 
+int BinarySearch(struct Array arr, int key){
+    int l = 0;
+    int h = arr.length-1;
+    int mid;
+    
+    while(l <= h){
+        mid = (l + h)/2;
+        if(key == arr.A[mid])
+            return mid;
+        else if(key < arr.A[mid])
+            h = mid - 1;
+        else
+            l = mid + 1;
+    }
+
+    return -1;
+}
+
 int main(){
     // Dynamic Array Creation
     /* struct Array arr;
@@ -121,20 +139,22 @@ int main(){
 
     struct Array arr = {{1,2,3,4,5}, 10, 5};
     
-    Insert(&arr, arr.length, 6); // 6th element
+    // Insert(&arr, arr.length, 6); // 6th element
+
+    // Display(arr);
+
+    // Delete(&arr, 1);
+
+    // Display(arr);
+
+    // int index = LinearSearch(&arr, 4);
+    // if(index == -1)
+    //     cout << "Element not found!" << endl;
+    // else    
+    //     cout<< "Element found at index " << index << endl;
 
     Display(arr);
 
-    Delete(&arr, 1);
-
-    Display(arr);
-
-    int index = LinearSearch(&arr, 4);
-    if(index == -1)
-        cout << "Element not found!" << endl;
-    else    
-        cout<< "Element found at index " << index << endl;
-
-    Display(arr);
+    cout << BinarySearch(arr, 6) << endl; 
     return 0;
 }
