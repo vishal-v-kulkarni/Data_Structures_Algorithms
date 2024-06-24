@@ -117,6 +117,22 @@ int BinarySearch(struct Array arr, int key){
     return -1;
 }
 
+int RecBinarySearch(struct Array arr, int l, int h, int key){
+    int mid;
+
+    if(l<=h){
+        mid = (l+h)/2;
+        if(key == arr.A[mid])
+            return mid;
+        else if(key < arr.A[mid])
+            return RecBinarySearch(arr, l, mid-1, key);
+        else   
+            return RecBinarySearch(arr, mid+1, h, key);
+    }
+    return -1;
+
+}
+
 int main(){
     // Dynamic Array Creation
     /* struct Array arr;
@@ -156,5 +172,6 @@ int main(){
     Display(arr);
 
     cout << BinarySearch(arr, 6) << endl; 
+    cout << RecBinarySearch(arr, 0, arr.length-1, 1) << endl;
     return 0;
 }
