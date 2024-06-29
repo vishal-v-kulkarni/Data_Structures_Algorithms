@@ -133,6 +133,17 @@ int RecBinarySearch(struct Array arr, int l, int h, int key){
 
 }
 
+int Get(struct Array arr, int index){
+    if(index >= 0 && index < arr.length){
+        return arr.A[index];
+    }
+}
+
+void Set(struct Array *arr, int index, int x){
+    if(index >=0 && index < arr->length)
+        arr->A[index] = x;
+}
+
 int main(){
     // Dynamic Array Creation
     /* struct Array arr;
