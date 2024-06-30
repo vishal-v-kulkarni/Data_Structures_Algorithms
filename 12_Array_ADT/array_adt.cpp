@@ -137,11 +137,53 @@ int Get(struct Array arr, int index){
     if(index >= 0 && index < arr.length){
         return arr.A[index];
     }
+    return -1;
 }
 
 void Set(struct Array *arr, int index, int x){
     if(index >=0 && index < arr->length)
         arr->A[index] = x;
+}
+
+int Max(struct Array arr){
+    int max = arr.A[0];
+    for(int i=1; i<arr.length; i++){
+        if(arr.A[i] > max){
+            max = arr.A[i];
+        }
+    }
+
+    return max;
+}
+
+int Min(struct Array arr){
+    int min = arr.A[0];
+    for(int i=1; i<arr.length; i++){
+        if(arr.A[i] < min){
+            min = arr.A[i];
+        }
+    }
+
+    return min;
+}
+
+int Sum(struct Array arr){
+    int total = 0;
+    for (int i=0; i<arr.length; i++){
+        total = total + arr.A[i];
+    }
+    return total;
+}
+
+int SumRec(struct Array arr, int n){
+    if(n < 0)
+        return 0;
+    else
+        return arr.A[n] + SumRec(arr, n-1);
+}
+
+float Avg(struct Array arr){
+    return (float)SumRec(arr, arr.length) / arr.length;
 }
 
 int main(){
@@ -164,7 +206,7 @@ int main(){
         arr.length++;
     } */
 
-    struct Array arr = {{1,2,3,4,5}, 10, 5};
+    struct Array arr = {{1,2,3,4,6}, 10, 5};
     
     // Insert(&arr, arr.length, 6); // 6th element
 
@@ -182,7 +224,13 @@ int main(){
 
     Display(arr);
 
-    cout << BinarySearch(arr, 6) << endl; 
-    cout << RecBinarySearch(arr, 0, arr.length-1, 1) << endl;
+    // cout << BinarySearch(arr, 6) << endl; 
+    // cout << RecBinarySearch(arr, 0, arr.length-1, 1) << endl;
+
+    cout<< Sum(arr) << endl;
+    cout<< SumRec(arr, arr.length) << endl;
+    cout<< Avg(arr) << endl;
+
     return 0;
+
 }
