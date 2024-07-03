@@ -208,6 +208,36 @@ void ReverseSwap(struct Array *arr){
     }
 }
 
+void LeftShift(struct Array *arr){
+    for(int i=1; i<arr->length; i++){
+        arr->A[i-1] = arr->A[i];
+    }
+    arr->A[arr->length-1] = 0;
+}
+
+void LeftRotate(struct Array *arr){
+    int temp = arr->A[0];
+    for(int i=1; i<arr->length; i++){
+        arr->A[i-1] = arr->A[i];
+    }
+    arr->A[arr->length-1] = temp;
+}
+
+void RightShift(struct Array *arr){
+    for(int i=arr->length-1; i>0; i--){
+        arr->A[i] = arr->A[i-1];
+    }
+    arr->A[0] = 0;
+}
+
+void RightRotate(struct Array *arr){
+    int temp = arr->A[arr->length-1];
+    for(int i=arr->length-1; i>0; i--){
+        arr->A[i] = arr->A[i-1];
+    }
+    arr->A[0] = temp;
+}
+
 int main(){
     // Dynamic Array Creation
     /* struct Array arr;
@@ -254,7 +284,10 @@ int main(){
     // cout<< Avg(arr) << endl;
 
     //Reverse(&arr);
-    ReverseSwap(&arr);
+    // ReverseSwap(&arr);
+    
+    //LeftShift(&arr);
+    RightRotate(&arr);
 
     Display(arr);
     return 0;
