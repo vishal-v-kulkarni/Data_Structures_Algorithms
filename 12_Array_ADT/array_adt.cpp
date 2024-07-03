@@ -204,9 +204,7 @@ void Reverse(struct Array *arr){
 void ReverseSwap(struct Array *arr){
     int temp;
     for(int i=0, j=arr->length-1; i < j; i++, j--){
-        temp = arr->A[i];
-        arr->A[i] = arr->A[j];
-        arr->A[j] = temp;
+        Swap(&arr->A[i], &arr->A[j]);
     }
 }
 
