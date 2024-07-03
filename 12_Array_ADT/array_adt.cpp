@@ -186,6 +186,30 @@ float Avg(struct Array arr){
     return (float)SumRec(arr, arr.length) / arr.length;
 }
 
+void Reverse(struct Array *arr){
+    // int B[arr->length];
+    int *B;
+    B = (int *)malloc(sizeof(int) * arr->length);
+
+    for(int i=arr->length-1, j=0; i>=0; i--, j++){
+        B[j] = arr->A[i];
+    }
+
+    for(int i=0; i<arr->length; i++){
+        arr->A[i] = B[i];
+    }
+
+}
+
+void ReverseSwap(struct Array *arr){
+    int temp;
+    for(int i=0, j=arr->length-1; i < j; i++, j--){
+        temp = arr->A[i];
+        arr->A[i] = arr->A[j];
+        arr->A[j] = temp;
+    }
+}
+
 int main(){
     // Dynamic Array Creation
     /* struct Array arr;
@@ -206,7 +230,7 @@ int main(){
         arr.length++;
     } */
 
-    struct Array arr = {{1,2,3,4,6}, 10, 5};
+    struct Array arr = {{1,2,3,4,5,6}, 10, 6};
     
     // Insert(&arr, arr.length, 6); // 6th element
 
@@ -227,10 +251,14 @@ int main(){
     // cout << BinarySearch(arr, 6) << endl; 
     // cout << RecBinarySearch(arr, 0, arr.length-1, 1) << endl;
 
-    cout<< Sum(arr) << endl;
-    cout<< SumRec(arr, arr.length) << endl;
-    cout<< Avg(arr) << endl;
+    // cout<< Sum(arr) << endl;
+    // cout<< SumRec(arr, arr.length) << endl;
+    // cout<< Avg(arr) << endl;
 
+    //Reverse(&arr);
+    ReverseSwap(&arr);
+
+    Display(arr);
     return 0;
 
 }

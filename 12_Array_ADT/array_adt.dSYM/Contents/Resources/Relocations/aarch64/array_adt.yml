@@ -2,9 +2,23 @@
 triple:          'arm64-apple-darwin'
 binary-path:     '/Users/vishalkulkarni/Desktop/My_PC/! Data Structures - Udemy/Data_Structures_Algorithms/12_Array_ADT/array_adt'
 relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: __Z7Display5Array, symObjAddr: 0x0, symBinAddr: 0x100003C38, symSize: 0x88 }
-  - { offsetInCU: 0x2DF4, offset: 0x2DF4, size: 0x8, addend: 0x0, symName: __Z7Display5Array, symObjAddr: 0x0, symBinAddr: 0x100003C38, symSize: 0x88 }
-  - { offsetInCU: 0x2E39, offset: 0x2E39, size: 0x8, addend: 0x0, symName: __Z6Append5Arrayi, symObjAddr: 0x88, symBinAddr: 0x100003CC0, symSize: 0x54 }
-  - { offsetInCU: 0x2E74, offset: 0x2E74, size: 0x8, addend: 0x0, symName: __Z6Insert5Arrayii, symObjAddr: 0xDC, symBinAddr: 0x100003D14, symSize: 0xEC }
-  - { offsetInCU: 0x2ED9, offset: 0x2ED9, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x1C8, symBinAddr: 0x100003E00, symSize: 0x114 }
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: __Z7Display5Array, symObjAddr: 0x0, symBinAddr: 0x100003428, symSize: 0x88 }
+  - { offsetInCU: 0x2DF4, offset: 0x2DF4, size: 0x8, addend: 0x0, symName: __Z7Display5Array, symObjAddr: 0x0, symBinAddr: 0x100003428, symSize: 0x88 }
+  - { offsetInCU: 0x2E39, offset: 0x2E39, size: 0x8, addend: 0x0, symName: __Z6AppendP5Arrayi, symObjAddr: 0x88, symBinAddr: 0x1000034B0, symSize: 0x5C }
+  - { offsetInCU: 0x2E6F, offset: 0x2E6F, size: 0x8, addend: 0x0, symName: __Z6InsertP5Arrayii, symObjAddr: 0xE4, symBinAddr: 0x10000350C, symSize: 0xE4 }
+  - { offsetInCU: 0x2ECF, offset: 0x2ECF, size: 0x8, addend: 0x0, symName: __Z6DeleteP5Arrayi, symObjAddr: 0x1C8, symBinAddr: 0x1000035F0, symSize: 0xEC }
+  - { offsetInCU: 0x2F33, offset: 0x2F33, size: 0x8, addend: 0x0, symName: __Z4SwapPiS_, symObjAddr: 0x2B4, symBinAddr: 0x1000036DC, symSize: 0x3C }
+  - { offsetInCU: 0x2F77, offset: 0x2F77, size: 0x8, addend: 0x0, symName: __Z12LinearSearchP5Arrayi, symObjAddr: 0x2F0, symBinAddr: 0x100003718, symSize: 0xA4 }
+  - { offsetInCU: 0x2FCD, offset: 0x2FCD, size: 0x8, addend: 0x0, symName: __Z12BinarySearch5Arrayi, symObjAddr: 0x394, symBinAddr: 0x1000037BC, symSize: 0xE4 }
+  - { offsetInCU: 0x3032, offset: 0x3032, size: 0x8, addend: 0x0, symName: __Z15RecBinarySearch5Arrayiii, symObjAddr: 0x478, symBinAddr: 0x1000038A0, symSize: 0x120 }
+  - { offsetInCU: 0x3097, offset: 0x3097, size: 0x8, addend: 0x0, symName: __Z3Get5Arrayi, symObjAddr: 0x598, symBinAddr: 0x1000039C0, symSize: 0x6C }
+  - { offsetInCU: 0x30D2, offset: 0x30D2, size: 0x8, addend: 0x0, symName: __Z3SetP5Arrayii, symObjAddr: 0x604, symBinAddr: 0x100003A2C, symSize: 0x5C }
+  - { offsetInCU: 0x3116, offset: 0x3116, size: 0x8, addend: 0x0, symName: __Z3Max5Array, symObjAddr: 0x660, symBinAddr: 0x100003A88, symSize: 0x94 }
+  - { offsetInCU: 0x316D, offset: 0x316D, size: 0x8, addend: 0x0, symName: __Z3Min5Array, symObjAddr: 0x6F4, symBinAddr: 0x100003B1C, symSize: 0x94 }
+  - { offsetInCU: 0x31C4, offset: 0x31C4, size: 0x8, addend: 0x0, symName: __Z3Sum5Array, symObjAddr: 0x788, symBinAddr: 0x100003BB0, symSize: 0x6C }
+  - { offsetInCU: 0x321B, offset: 0x321B, size: 0x8, addend: 0x0, symName: __Z6SumRec5Arrayi, symObjAddr: 0x7F4, symBinAddr: 0x100003C1C, symSize: 0x84 }
+  - { offsetInCU: 0x3256, offset: 0x3256, size: 0x8, addend: 0x0, symName: __Z3Avg5Array, symObjAddr: 0x878, symBinAddr: 0x100003CA0, symSize: 0x60 }
+  - { offsetInCU: 0x3283, offset: 0x3283, size: 0x8, addend: 0x0, symName: __Z7ReverseP5Array, symObjAddr: 0x8D8, symBinAddr: 0x100003D00, symSize: 0xE8 }
+  - { offsetInCU: 0x32FF, offset: 0x32FF, size: 0x8, addend: 0x0, symName: __Z11ReverseSwapP5Array, symObjAddr: 0x9C0, symBinAddr: 0x100003DE8, symSize: 0x9C }
+  - { offsetInCU: 0x335F, offset: 0x335F, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xA5C, symBinAddr: 0x100003E84, symSize: 0x84 }
 ...
