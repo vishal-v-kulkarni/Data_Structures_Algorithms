@@ -238,6 +238,44 @@ void RightRotate(struct Array *arr){
     arr->A[0] = temp;
 }
 
+int InsertSorted(struct Array *arr, int x){
+    int i = arr->length-1;
+
+    while(i >=0 && arr->A[i] > x){
+       arr->A[i+1] = arr->A[i];
+       i--;
+    }
+
+    arr->A[i+1] = x; //Because 'i' will be 1 behind the empty space.
+    arr->length++;
+}
+
+bool isSorted(struct Array arr){
+    
+    for(int i=0; i< arr.length-1; i++){
+        if(arr.A[i] > arr.A[i+1])
+            return false;
+    }
+
+    return true;
+}
+
+void NegativeArrange(struct Array *arr){
+    int i=0;
+    int j=arr->length-1;
+
+    while(i < j){
+        while(arr->A[i] < 0){ i++; }
+        while(arr->A[j] >= 0){ j--;}
+
+        if(i < j){
+            Swap(&arr->A[i], &arr->A[j]);
+        }
+    }
+
+}
+
+
 int main(){
     // Dynamic Array Creation
     /* struct Array arr;
@@ -258,7 +296,7 @@ int main(){
         arr.length++;
     } */
 
-    struct Array arr = {{1,2,3,4,5,6}, 10, 6};
+    struct Array arr = {{-6, 3, -8, 10, 5, -7, -9, 12, -4, 2}, 10, 10};
     
     // Insert(&arr, arr.length, 6); // 6th element
 
@@ -287,7 +325,15 @@ int main(){
     // ReverseSwap(&arr);
     
     //LeftShift(&arr);
-    RightRotate(&arr);
+    //RightRotate(&arr);
+
+    //struct Array arr = {{1,2,12,81,87,93}, 10, 6};
+    //InsertSorted(&arr,82);
+    
+    //struct Array arr = {{1,21,12,81,87,93}, 10, 6};
+    //cout<< isSorted(arr) << endl;
+
+    NegativeArrange(&arr);
 
     Display(arr);
     return 0;
