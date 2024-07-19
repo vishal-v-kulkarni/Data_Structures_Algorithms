@@ -299,6 +299,51 @@ struct Array * MergeArrays(struct Array arr1, struct Array arr2){
 }
 
 
+struct Array * UnionArrays(struct Array arr1, struct Array arr2){
+    
+    struct Array *arr3 = (struct Array*)malloc(sizeof(struct Array));
+    
+    if(isSorted(arr1) && isSorted(arr2)){
+        
+
+
+
+    }
+    else{
+        int l=0;
+        bool elementPresent = false;
+        //Copy the Array A to Array C
+        for(int i=0; i<arr1.length; i++, l++){
+            arr3->A[l] = arr1.A[i]; 
+        }
+        arr3->length = arr1.length;
+        arr3->size = 15;
+
+        //Check the Elements of Array B to Array C and add if they are not there in Array C. If not, copy the element to C.
+        for(int j=0; j < arr2.length; j++){
+            for(int k=0; k < arr3->length; k++){
+                if(arr2.A[j] == arr3->A[k]){
+                    elementPresent = true;
+                    break;
+                }else{
+                    elementPresent = false;
+                    continue;
+                }       
+            }
+            if(elementPresent)
+                continue;
+            else{
+                arr3->A[l] = arr2.A[j];
+                l++;
+            }
+
+        }
+        arr3->length = l;
+
+    } 
+    return arr3;
+}
+
 int main(){
     // Dynamic Array Creation
     /* struct Array arr;
@@ -335,7 +380,7 @@ int main(){
     // else    
     //     cout<< "Element found at index " << index << endl;
 
-    Display(arr);
+    //Display(arr);
 
     // cout << BinarySearch(arr, 6) << endl; 
     // cout << RecBinarySearch(arr, 0, arr.length-1, 1) << endl;
@@ -358,10 +403,18 @@ int main(){
 
     NegativeArrange(&arr);
 
-    struct Array arr1 = {{3, 8, 16, 20, 25}, 10, 5};
-    struct Array arr2 = {{4, 10, 12, 22, 23}, 10, 5};
+    // Sorted Arrays
+    //struct Array arr1 = {{3, 8, 16, 20, 25}, 10, 5};
+    //struct Array arr2 = {{4, 10, 12, 22, 23}, 10, 5};
+
+    //Unsorted Arrays
+    struct Array arr1 = {{3, 5, 10, 4, 6}, 10, 5};
+    struct Array arr2 = {{12, 4, 7, 2, 5}, 10, 5};
+    
     struct Array *arr3;
-    arr3 = MergeArrays(arr1, arr2);
+    //arr3 = MergeArrays(arr1, arr2);
+
+    arr3 = UnionArrays(arr1, arr2);
 
     Display(arr1);
     Display(arr2);
