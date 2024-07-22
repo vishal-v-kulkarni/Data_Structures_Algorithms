@@ -238,7 +238,7 @@ void RightRotate(struct Array *arr){
     arr->A[0] = temp;
 }
 
-int InsertSorted(struct Array *arr, int x){
+void InsertSorted(struct Array *arr, int x){
     int i = arr->length-1;
 
     while(i >=0 && arr->A[i] > x){
