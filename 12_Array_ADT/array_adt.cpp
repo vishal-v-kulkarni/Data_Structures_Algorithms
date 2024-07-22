@@ -415,6 +415,63 @@ struct Array* IntersectionArrays(struct Array arr1, struct Array arr2){
     return arr3;
 }
 
+struct Array* DifferenceArrays(struct Array arr1, struct Array arr2){
+    struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array));
+
+    if(isSorted(arr1) && isSorted(arr2)){
+        int i=0, j=0, k=0;
+        while(i < arr1.length && j < arr2.length){
+            if(arr1.A[i] < arr2.A[j])
+                arr3->A[k++] = arr1.A[i++];
+            else if(arr1.A[i] > arr2.A[j])
+                j++;
+            else{   
+                i++;
+                j++;
+            }
+        
+        }
+        for(;i<arr1.length; i++)
+            arr3->A[k++] = arr1.A[i];
+
+        arr3->length = k;
+        arr3->size = 10;
+
+    }else{
+
+        int k=0;
+        bool sameElement= false;
+        arr3->size = 15;
+
+        //Check the Elements of Array A to Array B and add them to Array C if they are equal. If not, skip the element.
+        for(int i=0; i < arr1.length; i++){
+            for(int j=0; j < arr2.length; j++){
+                if(arr1.A[i] == arr2.A[j]){
+                    sameElement = true;
+                    break;
+                }else{
+                    sameElement = false;
+                    continue;
+                }       
+            }
+            if(sameElement){
+                continue;
+            }
+            else{
+                arr3->A[k] = arr1.A[i];
+                k++;
+            }
+
+        }
+        arr3->length = k;
+
+
+    }
+    
+    return arr3;
+}
+
+
 int main(){
     // Dynamic Array Creation
     /* struct Array arr;
@@ -472,21 +529,24 @@ int main(){
     //struct Array arr = {{1,21,12,81,87,93}, 10, 6};
     //cout<< isSorted(arr) << endl;
 
-    NegativeArrange(&arr);
+    //NegativeArrange(&arr);
 
     // Sorted Arrays
-    // struct Array arr1 = {{3, 8, 16, 20, 25}, 10, 5};
+    // struct Array arr1 = {{3, 8, 16, 20, 22, 25}, 10, 6};
     // struct Array arr2 = {{4, 6, 8, 20, 23}, 10, 5};
 
     //Unsorted Arrays
-    struct Array arr1 = {{3, 5, 10, 4, 6}, 10, 5};
+    struct Array arr1 = {{3, 5, 10, 23, 27, 4, 6}, 10, 7};
     struct Array arr2 = {{12, 4, 7, 2, 5, 10}, 10, 6};
     
     struct Array *arr3;
     //arr3 = MergeArrays(arr1, arr2);
 
     //arr3 = UnionArrays(arr1, arr2);
-    arr3 = IntersectionArrays(arr1, arr2);
+    //arr3 = IntersectionArrays(arr1, arr2);
+
+    //Difference of Array1 - Array2 
+    arr3 = DifferenceArrays(arr1, arr2);
 
 
     Display(arr1);
