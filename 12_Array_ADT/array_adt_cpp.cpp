@@ -63,10 +63,10 @@ public:
 // Scope resolution for the class Array
 void Array::Display()
 {
-    printf("Elements are: \n");
+    cout << "Elements are: " << endl;
     for (int i = 0; i < length; i++)
     {
-        printf("%d\n", A[i]);
+        cout << A[i] << endl;
     }
 }
 
@@ -600,44 +600,44 @@ int main()
     int ch, sz;
     int x, index;
 
-    printf("Enter Size of Array");
-    scanf("%d", &sz);
+    cout << "Enter Size of Array";
+    cin >> sz;
     arr1 = new Array(sz);
 
     do
     {
-        printf("\n\nMenu\n");
-        printf("1. Insert\n");
-        printf("2. Delete\n");
-        printf("3. Search\n");
-        printf("4. Sum\n");
-        printf("5. Display\n");
-        printf("6.Exit\n");
+        cout << "\n\nMenu" << endl;
+        cout << "1. Insert" << endl;
+        cout << "2. Delete" << endl;
+        cout << "3. Search" << endl;
+        cout << "4. Sum" << endl;
+        cout << "5. Display" << endl;
+        cout << "6.Exit" << endl;
 
-        printf("enter you choice ");
-        scanf("%d", &ch);
+        cout << "Enter you choice ";
+        cin >> ch;
 
         switch (ch)
         {
         case 1:
-            printf("Enter an element and index");
-            scanf("%d%d", &x, &index);
+            cout << "Enter an element and index";
+            cin >> x >> index;
             arr1->Insert(index, x);
             break;
         case 2:
-            printf("Enter index ");
-            scanf("%d", &index);
+            cout << "Enter index ";
+            cin >> index;
             x = arr1->Delete(index);
-            printf("Deleted Element is %d\n", x);
+            cout << "Deleted Element is " << x << endl;
             break;
         case 3:
-            printf("Enter element to search ");
-            scanf("%d", &x);
+            cout << "Enter element to search ";
+            cin >> x;
             index = arr1->BinarySearch(x);
-            printf("Element index %d", index);
+            cout << "Element index " << index;
             break;
         case 4:
-            printf("Sum is %d\n", arr1->Sum());
+            cout << "Sum is " << arr1->Sum() << endl;
             break;
         case 5:
             arr1->Display();
