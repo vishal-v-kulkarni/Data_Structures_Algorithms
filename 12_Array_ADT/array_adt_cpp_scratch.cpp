@@ -114,5 +114,20 @@ int main()
 
     arr2.Display();
 
+    Array<char> arr3(10);
+    arr3.Insert(0, 'a');
+    arr3.Insert(1, 'b');
+    arr3.Insert(2, 'c');
+    arr3.Insert(3, 'd');
+
+    arr3.Display();
+
+    cout << "Deleted " << arr3.Delete(2) << endl;
+
+    arr3.Display();
+
+    char x = 0;
+    cout << x << endl;
+
     return 0;
 }
