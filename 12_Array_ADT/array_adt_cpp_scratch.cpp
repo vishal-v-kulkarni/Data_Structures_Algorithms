@@ -66,7 +66,7 @@ T Array<T>::Delete(int index)
     T x = 0;
     if (index >= 0 && index < length)
     {
-        x = A[length - 1];
+        x = A[index];
         for (int i = index; i < length - 1; i++)
         {
             A[i] = A[i + 1];
@@ -85,15 +85,17 @@ int main()
     arr.Insert(1, 4);
     arr.Insert(2, 5);
     arr.Insert(3, 3);
+    cout << "Deleted " << arr.Delete(2) << endl;
 
     arr.Display();
 
-    Array<string> arr1(10);
-    arr1.Insert(0, "hello");
-    arr1.Insert(1, "Vishal");
-    arr1.Insert(2, "How are you?");
+    // Array<string> arr1(10);
+    // arr1.Insert(0, "hello");
+    // arr1.Insert(1, "Vishal");
+    // arr1.Insert(2, "How are you?");
+    // cout << "Deleted " << arr1.Delete(2) << endl;
 
-    arr1.Display();
+    // arr1.Display();
 
     return 0;
 }

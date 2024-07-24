@@ -119,7 +119,7 @@ int Array::Delete(int index)
     int x = 0;
     if (index >= 0 && index < length)
     {
-        x = A[length - 1];
+        x = A[index];
         for (int i = index; i < length - 1; i++)
         {
             A[i] = A[i + 1];
