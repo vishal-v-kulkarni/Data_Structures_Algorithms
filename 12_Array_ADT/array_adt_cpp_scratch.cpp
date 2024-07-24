@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include <typeinfo>
 
 using namespace std;
 
@@ -49,6 +50,7 @@ void Array<T>::Display()
 template <class T>
 void Array<T>::Insert(int index, T element)
 {
+    // cout << typeid(T).name() << endl;
     if (index >= 0 && length < size && index <= length)
     {
         for (int i = length; i > index; i--)
@@ -85,6 +87,9 @@ int main()
     arr.Insert(1, 4);
     arr.Insert(2, 5);
     arr.Insert(3, 3);
+
+    arr.Display();
+
     cout << "Deleted " << arr.Delete(2) << endl;
 
     arr.Display();
@@ -96,6 +101,18 @@ int main()
     // cout << "Deleted " << arr1.Delete(2) << endl;
 
     // arr1.Display();
+
+    Array<float> arr2(10);
+    arr2.Insert(0, 1.2);
+    arr2.Insert(1, 2.2);
+    arr2.Insert(2, 3.2);
+    arr2.Insert(3, 4.2);
+
+    arr2.Display();
+
+    cout << "Deleted " << arr2.Delete(2) << endl;
+
+    arr2.Display();
 
     return 0;
 }
