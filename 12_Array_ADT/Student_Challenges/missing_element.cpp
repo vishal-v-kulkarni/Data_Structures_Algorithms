@@ -14,6 +14,7 @@ int Sum(int A[], int n)
     return total;
 }
 
+// Single Missing Element - Method 1
 int SumMissing(int A[], int n)
 {
     int sum = n * (n + 1) / 2;
@@ -24,6 +25,7 @@ int SumMissing(int A[], int n)
     return missingElement;
 }
 
+// Single Missing Element - Method 2
 int UsingIndex(int A[], int n)
 {
     int diff = A[0] - 0;
@@ -36,6 +38,7 @@ int UsingIndex(int A[], int n)
     return -1; // No missing element
 }
 
+// Multiple Missing Element - Method 1
 void MultipleUsingIndex(int A[], int n)
 {
     int diff = A[0] - 0;
