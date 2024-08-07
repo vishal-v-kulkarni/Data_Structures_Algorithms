@@ -56,18 +56,44 @@ void MultipleUsingIndex(int A[], int n)
     }
 }
 
+// Multiple Missing Elements - Method 2
+void MultipleUsingHashing(int A[], int n, int l, int h)
+{
+    int *H = new int[h];
+
+    for (int i = 0; i < n; i++)
+    {
+        H[A[i]]++;
+    }
+
+    cout << "The missing elements are: " << endl;
+    for (int j = l; j < h; j++)
+    {
+        if (H[j] == 0)
+            cout << j << endl;
+    }
+}
+
 int main()
 {
     // int A[10] = {1, 2, 3, 4, 6, 7, 8, 9, 10};
     // int n = 10;
 
-    int A[8] = {6, 7, 8, 9, 12, 13, 15, 16};
+    // Sorted Array
+    //  int A[8] = {6, 7, 8, 9, 12, 13, 15, 16};
+    //  int n = 8;
+
+    // Unsorted Array - Method 2
+    int A[8] = {3, 2, 6, 5, 10, 9, 7, 12};
     int n = 8;
+    int l = 2;
+    int h = 12;
 
     // cout << "Missing element is " << SumMissing(A, n) << endl;
     // cout << "Missing element is " << UsingIndex(A, n) << endl;
 
-    MultipleUsingIndex(A, n);
+    // MultipleUsingIndex(A, n);
+    MultipleUsingHashing(A, n, l, h); // Method 2
 
     return 0;
 }
