@@ -97,7 +97,5 @@ int main()
 
     // DuplicatesUnsorted(A, n);
 
-    int A[h + 1][2];
-
     return 0;
 }
