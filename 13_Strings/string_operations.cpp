@@ -58,6 +58,58 @@ void wordsCount(char S[])
     cout << "Number of words in the sentence are " << words + 1 << endl;
 }
 
+// String should not contain any symbols
+bool validateString(char *A)
+{
+    int i;
+    for (i = 0; A[i] != '\0'; i++)
+    {
+        if (!((A[i] >= 65 && A[i] <= 90) || (A[i] >= 97 && A[i] <= 122) || (A[i] >= 48 && A[i] <= 57)))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+void reverseSecondArray(char A[])
+{
+    int i;
+    char B[7];
+
+    for (i = 0; A[i] != '\0'; i++)
+    {
+    }
+    i -= 1;
+
+    for (int j = 0; i >= 0; i--, j++)
+    {
+        B[j] = A[i];
+    }
+
+    printf("Reversed String: %s", B);
+}
+
+void reverseTwoPointers(char A[])
+{
+    int i, j;
+    char temp;
+
+    for (j = 0; A[j] != '\0'; j++)
+    {
+    }
+    j -= 1;
+
+    for (i = 0; i < j; i++, j--)
+    {
+        temp = A[i];
+        A[i] = A[j];
+        A[j] = temp;
+    }
+
+    cout << A << endl;
+}
+
 int main()
 {
 
@@ -71,6 +123,20 @@ int main()
     char A[] = "How are    you"; // Big spaces are known as 'White Spaces'
     vowelsConsonantsCount(A);
     wordsCount(A);
+
+    char *B = "Wel?come";
+    if (validateString(B))
+    {
+        cout << "Valid String" << endl;
+    }
+    else
+    {
+        cout << "Invalid String" << endl;
+    }
+
+    char string[] = "Python";
+    // reverseSecondArray(string);
+    reverseTwoPointers(string);
 
     return 0;
 }
