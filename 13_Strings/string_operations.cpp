@@ -110,6 +110,44 @@ void reverseTwoPointers(char A[])
     cout << A << endl;
 }
 
+// CASE-Sensitive
+void compareStrings(char A[], char B[])
+{
+    int i, j;
+
+    for (i = 0, j = 0; A[i] != '\0' && B[i] != '\0'; i++, j++)
+    {
+        if (A[i] != B[i])
+            break;
+    }
+
+    if (A[i] == B[i])
+        cout << "Equal Strings" << endl;
+    else if (A[i] > B[i])
+        cout << "String A1 comes first in the dictionary" << endl;
+    else
+        cout << "String A1 comes first in the dictionary" << endl;
+}
+
+// Using 2 pointers like reversing the array CASE-SENSITIVE
+bool isPalindrome(char *P)
+{
+    int i, j;
+    for (j = 0; P[j] != '\0'; j++)
+    {
+    }
+
+    j -= 1;
+
+    for (i = 0; i <= j; i++, j--)
+    {
+        if (P[i] != P[j])
+            return false;
+    }
+
+    return true;
+}
+
 int main()
 {
 
@@ -137,6 +175,16 @@ int main()
     char string[] = "Python";
     // reverseSecondArray(string);
     reverseTwoPointers(string);
+
+    char A1[] = "Chair";
+    char A2[] = "Chairs";
+    compareStrings(A1, A2);
+
+    char *P = "MOM";
+    if (isPalindrome(P))
+        cout << "String " << P << " is a Palindrome" << endl;
+    else
+        cout << "String " << P << " is NOT a Palindrome" << endl;
 
     return 0;
 }
