@@ -149,6 +149,23 @@ bool isPalindrome(char *P)
     return true;
 }
 
+void checkingDuplicates(char A[])
+{
+    int H[26] = {0}, i;
+    for (i = 0; A[i] != '\0'; i++)
+    {
+        H[A[i] - 97]++;
+    }
+
+    for (int j = 0; j < 26; j++)
+    {
+        if (H[j] > 1)
+        {
+            cout << "Letter " << static_cast<char>(j + 97) << " repeats " << H[j] << " times." << endl;
+        }
+    }
+}
+
 int main()
 {
 
@@ -187,5 +204,7 @@ int main()
     else
         cout << "String " << P << " is NOT a Palindrome" << endl;
 
+    char *D = "finding";
+    checkingDuplicates(D);
     return 0;
 }
