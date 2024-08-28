@@ -199,8 +199,14 @@ bool areAnagrams(char *A, char *B)
     for (int i = 0; B[i] != '\0'; i++)
     {
         H[B[i] - 97]--;
-        if (H[B[i] - 97] != 0)
+    }
+
+    for (int i = 0; i < 26; i++)
+    {
+        if (H[i] != 0)
+        {
             return false;
+        }
     }
 
     return true;
