@@ -74,7 +74,7 @@ bool validateString(char *A)
 
 void reverseSecondArray(char A[])
 {
-    int i;
+    int i, j;
     char B[7];
 
     for (i = 0; A[i] != '\0'; i++)
@@ -82,12 +82,13 @@ void reverseSecondArray(char A[])
     }
     i -= 1;
 
-    for (int j = 0; i >= 0; i--, j++)
+    for (j = 0; i >= 0; i--, j++)
     {
         B[j] = A[i];
     }
+    B[j] = '\0';
 
-    printf("Reversed String: %s", B);
+    printf("Reversed String: %s\n", B);
 }
 
 void reverseTwoPointers(char A[])
@@ -173,8 +174,8 @@ int main()
     }
 
     char string[] = "Python";
-    // reverseSecondArray(string);
-    reverseTwoPointers(string);
+    reverseSecondArray(string);
+    // reverseTwoPointers(string);
 
     char A1[] = "Chair";
     char A2[] = "Chairs";
