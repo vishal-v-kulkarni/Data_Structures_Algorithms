@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+_LIBCPP_SUPPRESS_DEPRECATED_POP
 
 using namespace std;
 
@@ -186,6 +187,31 @@ void duplicatesBitwise(char *A)
     }
 }
 
+bool areAnagrams(char *A, char *B)
+{
+    int H[26] = {0};
+
+    for (int i = 0; A[i] != '\0'; i++)
+    {
+        H[A[i] - 97]++;
+    }
+
+    for (int i = 0; B[i] != '\0'; i++)
+    {
+        H[B[i] - 97]--;
+    }
+
+    for (int i = 0; i < 26; i++)
+    {
+        if (H[i] != 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 int main()
 {
 
@@ -227,5 +253,16 @@ int main()
     char *D = "finding";
     checkingDuplicates(D);
     duplicatesBitwise(D);
+
+    char *S1 = "medical";
+    char *S2 = "decimal";
+    if (areAnagrams(S1, S2))
+    {
+        cout << "Both the strings are anagrams." << endl;
+    }
+    else
+    {
+        cout << "Both the strings are NOT anagrams." << endl;
+    }
     return 0;
 }
