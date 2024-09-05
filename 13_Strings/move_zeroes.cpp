@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
+    vector<int> nums{1, 2, 3, 4, 5};
+    cout << nums.size() << endl;
 
     int A[5] = {0, 1, 0, 3, 12};
     int i = 0, j = 0;
