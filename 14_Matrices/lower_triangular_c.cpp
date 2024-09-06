@@ -20,14 +20,14 @@ void Set(struct Matrix *m, int i, int j, int x)
     }
 }
 
-int Get(struct Matrix *m, int i, int j)
+int Get(struct Matrix m, int i, int j)
 {
     int index;
     if (i >= j)
     {
         // index = (i * (i + 1) / 2) + j; // Row-Major Formula
-        index = ((m->n * j) - (((j - 1) * (j)) / 2)) + (i - j); // Column-Major Formula
-        return m->A[index];
+        index = ((m.n * j) - (((j - 1) * (j)) / 2)) + (i - j); // Column-Major Formula
+        return m.A[index];
     }
     else
     {
@@ -84,9 +84,9 @@ int main()
 
     Display(m);
 
-    printf("%d\n", Get(&m, 4, 3));
-    printf("%d\n", Get(&m, 4, 1));
-    printf("%d\n", Get(&m, 3, 1));
+    printf("%d\n", Get(m, 4, 3));
+    printf("%d\n", Get(m, 4, 1));
+    printf("%d\n", Get(m, 3, 1));
 
     return 0;
 }
