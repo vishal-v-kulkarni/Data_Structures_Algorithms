@@ -14,8 +14,8 @@ void Set(struct Matrix *m, int i, int j, int x)
     int index;
     if (i >= j)
     {
-        // index = (i * (i + 1) / 2) + j;                          // Row-Major Formula
-        index = ((m->n * j) - (((j - 1) * (j)) / 2)) + (i - j); // Column-Major Formula
+        index = (i * (i + 1) / 2) + j; // Row-Major Formula
+        // index = ((m->n * j) - (((j - 1) * (j)) / 2)) + (i - j); // Column-Major Formula
         m->A[index] = x;
     }
 }
@@ -25,8 +25,8 @@ int Get(struct Matrix m, int i, int j)
     int index;
     if (i >= j)
     {
-        // index = (i * (i + 1) / 2) + j; // Row-Major Formula
-        index = ((m.n * j) - (((j - 1) * (j)) / 2)) + (i - j); // Column-Major Formula
+        index = (i * (i + 1) / 2) + j; // Row-Major Formula
+        // index = ((m.n * j) - (((j - 1) * (j)) / 2)) + (i - j); // Column-Major Formula
         return m.A[index];
     }
     else
@@ -44,8 +44,8 @@ void Display(struct Matrix m)
             int index;
             if (i >= j)
             {
-                // index = (i * (i + 1) / 2) + j; // Row-Major Formula
-                index = ((m.n * j) - (((j - 1) * (j)) / 2)) + (i - j); // Column-Major Formula
+                index = (i * (i + 1) / 2) + j; // Row-Major Formula
+                // index = ((m.n * j) - (((j - 1) * (j)) / 2)) + (i - j); // Column-Major Formula
                 printf("%d ", m.A[index]);
             }
             else
@@ -61,26 +61,44 @@ int main()
 {
 
     struct Matrix m;
-    m.n = 5;
+
+    printf("Enter the dimension:\n");
+    scanf("%d", &m.n);
+
     int numberElements = (m.n * (m.n + 1)) / 2;
 
     m.A = (int *)malloc(sizeof(int) * numberElements);
+    int x;
 
-    Set(&m, 0, 0, 1);
-    Set(&m, 1, 0, 2);
-    Set(&m, 1, 1, 3);
-    Set(&m, 2, 0, 4);
-    Set(&m, 2, 1, 5);
-    Set(&m, 2, 2, 6);
-    Set(&m, 3, 0, 7);
-    Set(&m, 3, 1, 8);
-    Set(&m, 3, 2, 9);
-    Set(&m, 3, 3, 1);
-    Set(&m, 4, 0, 2);
-    Set(&m, 4, 1, 3);
-    Set(&m, 4, 2, 4);
-    Set(&m, 4, 3, 5);
-    Set(&m, 4, 4, 6);
+    printf("Enter the elements:\n");
+
+    // Scan values from keyboard
+    for (int i = 0; i < m.n; i++)
+    {
+        for (int j = 0; j < m.n; j++)
+        {
+            scanf("%d", &x);
+            Set(&m, i, j, x);
+        }
+    }
+
+    printf("\n\n");
+
+    // Set(&m, 0, 0, 1);
+    // Set(&m, 1, 0, 2);
+    // Set(&m, 1, 1, 3);
+    // Set(&m, 2, 0, 4);
+    // Set(&m, 2, 1, 5);
+    // Set(&m, 2, 2, 6);
+    // Set(&m, 3, 0, 7);
+    // Set(&m, 3, 1, 8);
+    // Set(&m, 3, 2, 9);
+    // Set(&m, 3, 3, 1);
+    // Set(&m, 4, 0, 2);
+    // Set(&m, 4, 1, 3);
+    // Set(&m, 4, 2, 4);
+    // Set(&m, 4, 3, 5);
+    // Set(&m, 4, 4, 6);
 
     Display(m);
 

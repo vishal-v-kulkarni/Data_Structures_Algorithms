@@ -18,6 +18,7 @@ public:
         A = new int[size];
     }
 
+    void Scan();
     void Set(int i, int j, int x);
     int Get(int i, int j);
     void Display();
@@ -27,6 +28,22 @@ public:
         delete[] A;
     }
 };
+
+void LowerTriangle ::Scan()
+{
+    // Scan values from keyboard
+    int x;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            scanf("%d", &x);
+            Set(i, j, x);
+        }
+    }
+
+    printf("\n\n");
+}
 
 void LowerTriangle ::Set(int i, int j, int x)
 {
@@ -78,23 +95,32 @@ void LowerTriangle::Display()
 
 int main()
 {
-    LowerTriangle l(5);
+    int n;
+    cout << "Enter the dimension of the matrix:" << endl;
+    cin >> n;
 
-    l.Set(0, 0, 1);
-    l.Set(1, 0, 2);
-    l.Set(1, 1, 3);
-    l.Set(2, 0, 4);
-    l.Set(2, 1, 5);
-    l.Set(2, 2, 6);
-    l.Set(3, 0, 7);
-    l.Set(3, 1, 8);
-    l.Set(3, 2, 9);
-    l.Set(3, 3, 1);
-    l.Set(4, 0, 2);
-    l.Set(4, 1, 3);
-    l.Set(4, 2, 4);
-    l.Set(4, 3, 5);
-    l.Set(4, 4, 6);
+    LowerTriangle l(n);
+
+    cout << "Enter the elements: " << endl;
+    l.Scan();
+
+    printf("\n\n");
+
+    // l.Set(0, 0, 1);
+    // l.Set(1, 0, 2);
+    // l.Set(1, 1, 3);
+    // l.Set(2, 0, 4);
+    // l.Set(2, 1, 5);
+    // l.Set(2, 2, 6);
+    // l.Set(3, 0, 7);
+    // l.Set(3, 1, 8);
+    // l.Set(3, 2, 9);
+    // l.Set(3, 3, 1);
+    // l.Set(4, 0, 2);
+    // l.Set(4, 1, 3);
+    // l.Set(4, 2, 4);
+    // l.Set(4, 3, 5);
+    // l.Set(4, 4, 6);
 
     l.Display();
 
