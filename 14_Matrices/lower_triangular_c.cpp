@@ -44,7 +44,8 @@ void Display(struct Matrix m)
             int index;
             if (i >= j)
             {
-                index = (i * (i + 1) / 2) + j;
+                // index = (i * (i + 1) / 2) + j; // Row-Major Formula
+                index = ((m.n * j) - (((j - 1) * (j)) / 2)) + (i - j); // Column-Major Formula
                 printf("%d ", m.A[index]);
             }
             else
