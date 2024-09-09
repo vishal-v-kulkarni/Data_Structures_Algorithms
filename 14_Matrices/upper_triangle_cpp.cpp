@@ -37,12 +37,13 @@ void UpperTriangle ::Scan()
     {
         for (int j = 0; j < n; j++)
         {
-            scanf("%d", &x);
+            cin >> x;
             Set(i, j, x);
         }
     }
 
-    printf("\n\n");
+    cout << endl
+         << endl;
 }
 
 void UpperTriangle ::Set(int i, int j, int x)
@@ -82,14 +83,14 @@ void UpperTriangle::Display()
             {
                 // index = (j * (j + 1) / 2) +i; // Column-Major Formula
                 index = ((n * i) - (((i - 1) * (i)) / 2)) + (j - i); // Row-Major Formula
-                printf("%d ", A[index]);
+                cout << A[index] << " ";
             }
             else
             {
-                printf("0 ");
+                cout << 0 << " ";
             }
         }
-        printf("\n");
+        cout << endl;
     }
 }
 
@@ -104,7 +105,8 @@ int main()
     cout << "Enter the elements: " << endl;
     l.Scan();
 
-    printf("\n\n");
+    cout << endl
+         << endl;
 
     // l.Set(0, 0, 1);
     // l.Set(1, 0, 2);
