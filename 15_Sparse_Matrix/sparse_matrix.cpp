@@ -41,7 +41,28 @@ void create(struct Sparse *s)
         cin >> s->e[i].j;
 
         cout << "Enter element for " << i << endl;
-        cin >> s->e[i].i;
+        cin >> s->e[i].x;
+    }
+}
+
+void display(struct Sparse s)
+{
+    int k = 0;
+    for (int i = 0; i < s.m; i++)
+    {
+        for (int j = 0; j < s.n; j++)
+        {
+            while (k < s.num)
+            {
+                if (s.e[k].i == i && s.e[k].j == j)
+                    cout << s.e[k].x << " ";
+                else
+                    cout << "0 ";
+
+                k++;
+            }
+        }
+        cout << endl;
     }
 }
 
@@ -49,4 +70,7 @@ int main()
 {
     struct Sparse s;
     create(&s);
+    cout << s.e[0].x << endl;
+    // display(s);
+    return 0;
 }
