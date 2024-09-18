@@ -38,7 +38,7 @@ void create(struct Sparse *s)
         cin >> s->e[i].i;
         cin >> s->e[i].j;
         cin >> s->e[i].x;
-        }
+    }
 }
 
 // Method 1 - Self - Lengthier but works
@@ -70,7 +70,7 @@ void create(struct Sparse *s)
 //     }
 // }
 
-// Method 2 - Same with no boolean
+// Method 2 - Same with no boolean and while loop
 void display(struct Sparse s)
 {
 
@@ -92,11 +92,71 @@ void display(struct Sparse s)
     }
 }
 
+struct Sparse *add(struct Sparse *s1, struct Sparse *s2)
+{
+    if (s1->m != s2->m && s1->n != s2->n)
+        return NULL;
+
+    int i, j, k;
+    i = j = k = 1;
+
+    struct Sparse *s3;
+    s3 = (struct Sparse *)malloc(sizeof(struct Sparse));
+    s3->e = (struct Element *)malloc((s1->num + s2->num) * sizeof(struct Element));
+
+    while (i <= s1->num && j <= s2->num)
+    {
+        if (s1->e[i].i < s2->e[j].i)
+            s3->e[k++] = s1->e[i++];
+        else if (s1->e[i].i > s2->e[j].i)
+            s3->e[k++] = s2->e[j++];
+        else
+        {
+            if (s1->e[i].j < s2->e[j].j)
+                s3->e[k++] = s1->e[i++];
+            else if (s1->e[i].j > s2->e[j].j)
+                s3->e[k++] = s2->e[j++];
+            else
+            {
+                s3->e[k] = s1->e[i];
+                s3->e[k++].x = s1->e[i++].x + s2->e[j++].x;
+            }
+        }
+    }
+    for (; i <= s1->num; i++)
+        s3->e[k++] = s1->e[i];
+
+    for (; j <= s2->num; j++)
+        s3->e[k++] = s2->e[j];
+
+    s3->num = k;
+    s3->m = s1->m;
+    s3->n = s1->n;
+
+    return s3;
+}
+
 int main()
 {
-    struct Sparse s;
-    create(&s);
+    struct Sparse s1, s2;
+
+    // Take inputs for s1 and s2
+    create(&s1);
+    create(&s2);
+
+    // Display s1 and s2
+    cout << "First Matrix" << endl;
+    display(s1);
+
+    cout << "Second Matrix" << endl;
+    display(s2);
+
+    struct Sparse *s3 = add(&s1, &s2);
+
+    // Display the s3
+    cout << "Sum Matrix" << endl;
+    display(*s3);
     // cout << s.e[0].x << endl;
-    display(s);
+
     return 0;
 }
