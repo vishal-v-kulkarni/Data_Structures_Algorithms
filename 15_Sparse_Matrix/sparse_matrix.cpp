@@ -32,34 +32,60 @@ void create(struct Sparse *s)
 
     cout << "Enter the elements for the matrix" << endl;
 
-    for (int i = 0; i < s->num; i++)
+    for (int i = 1; i <= s->num; i++)
     {
-        cout << "Enter row for " << i << endl;
+        cout << "Enter \'row column element\' for " << i << endl;
         cin >> s->e[i].i;
-
-        cout << "Enter column for " << i << endl;
         cin >> s->e[i].j;
-
-        cout << "Enter element for " << i << endl;
         cin >> s->e[i].x;
-    }
+        }
 }
 
+// Method 1 - Self - Lengthier but works
+// void display(struct Sparse s)
+// {
+
+//     for (int i = 1; i <= s.m; i++)
+//     {
+//         for (int j = 1; j <= s.n; j++)
+//         {
+//             int k = 1;
+//             bool elementPrinted = false;
+//             while (k <= s.num)
+//             {
+//                 if (s.e[k].i == i && s.e[k].j == j)
+//                 {
+//                     cout << s.e[k].x << " ";
+//                     elementPrinted = true;
+//                 }
+//                 k++;
+//             }
+//             if (!elementPrinted)
+//             {
+//                 cout << "0 ";
+//                 elementPrinted = false;
+//             }
+//         }
+//         cout << endl;
+//     }
+// }
+
+// Method 2 - Same with no boolean
 void display(struct Sparse s)
 {
-    int k = 0;
-    for (int i = 0; i < s.m; i++)
-    {
-        for (int j = 0; j < s.n; j++)
-        {
-            while (k < s.num)
-            {
-                if (s.e[k].i == i && s.e[k].j == j)
-                    cout << s.e[k].x << " ";
-                else
-                    cout << "0 ";
 
-                k++;
+    int k = 1;
+    for (int i = 1; i <= s.m; i++)
+    {
+        for (int j = 1; j <= s.n; j++)
+        {
+            if (s.e[k].i == i && s.e[k].j == j)
+            {
+                cout << s.e[k++].x << " ";
+            }
+            else
+            {
+                cout << "0 ";
             }
         }
         cout << endl;
@@ -70,7 +96,7 @@ int main()
 {
     struct Sparse s;
     create(&s);
-    cout << s.e[0].x << endl;
-    // display(s);
+    // cout << s.e[0].x << endl;
+    display(s);
     return 0;
 }
