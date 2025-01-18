@@ -15,7 +15,6 @@ void swapByAddress(int *x, int *y) // Call by address. These are pointers: simil
 void swapByRef(int &x, int &y) // Call by reference. These are references: similar to int &x = a
 {
     int temp;
-
     temp = x;
     x = y;
     y = temp;
