@@ -46,6 +46,19 @@ int *fun2(int n)
     return A;
 }
 
+int *fun3(int size)
+{
+    int *p1 = new int[size];
+    // OR
+    int *p2 = (int *)malloc(sizeof(int) * size);
+
+    for (int i = 0; i < size; i++)
+    {
+        p1[i] = (i + 3) * (i + 1);
+    }
+    return p1;
+}
+
 int main()
 {
 
@@ -67,8 +80,17 @@ int main()
 
     // Function returning array in C
     int B[size];
-    int *C = &B[0];
+    int *p2 = &B[0]; // Pointer to an array in stack. Now we can use p2[0] to call the array using the pointer.
+    int *C;
     C = fun2(size);
+
+    // Revision
+
+    int *p1;
+    p1 = fun3(size);
+
+    for (int i = 0; i < size; i++)
+        cout << p1[i] << endl;
 
     return 0;
 }
