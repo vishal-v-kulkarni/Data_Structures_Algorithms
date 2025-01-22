@@ -22,8 +22,8 @@ public:
     int getBreadth() { return breadth; }
 
     // Mutators - Setter functions
-    void setLength(int l) { length = l; }
-    void setBreadth(int b) { breadth = b; }
+    void setLength(int l);
+    void setBreadth(int b);
 
     // Destructor
     ~Rectangle();
@@ -43,6 +43,18 @@ int Rectangle::area()
 int Rectangle::perimeter()
 {
     return 2 * (length + breadth);
+}
+
+// Revision
+void Rectangle::setLength(int l)
+{
+    length = l;
+}
+
+// Revision
+void Rectangle::setBreadth(int b)
+{
+    breadth = b;
 }
 
 Rectangle::~Rectangle()

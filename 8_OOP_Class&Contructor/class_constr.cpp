@@ -34,6 +34,40 @@ public:
     }
 };
 
+// Revision
+class Square
+{
+
+private:
+    int side;
+
+public:
+    Square()
+    {
+        side = 10;
+    }
+
+    Square(int s)
+    {
+        side = s;
+    }
+
+    int area()
+    {
+        return side * side;
+    }
+
+    void setSide(int s)
+    {
+        side = s;
+    }
+
+    int getSide()
+    {
+        return side;
+    }
+};
+
 int main()
 {
 
@@ -41,6 +75,13 @@ int main()
 
     int ar = r.area();
     r.changeLength(15);
+
+    // Revision
+    Square s(5);
+    int area = s.area();
+    cout << area << endl;
+    s.setSide(10);
+    cout << s.getSide() << endl;
 
     return 0;
 }
