@@ -78,14 +78,16 @@ int main()
 
     struct Example e = {{1, 2}};
 
-    // fun1(r); //Call by value
+    // fun1(r); // Call by value
 
     // fun2(r); //Call by reference
 
-    // fun3(&r); // Call by address
+    fun3(&r); // Call by address
 
     // For fun1, fun2, fun3
-    // cout<<"In main:"<< endl << "Length: "<< r.length << endl << "Breadth: " << r.breadth <<endl;
+    cout << "In main:" << endl
+         << "Length: " << r.length << endl
+         << "Breadth: " << r.breadth << endl;
 
     // fun4(e);
 
@@ -95,11 +97,11 @@ int main()
     //      cout<<e.A[i]<<endl;
     //  }
 
-    struct Rectangle *rect = fun5();
+    // struct Rectangle *rect = fun5();
 
-    cout << "Rectangle in HEAP: " << endl
-         << rect->length << endl
-         << rect->breadth << endl;
+    // cout << "Rectangle in HEAP: " << endl
+    //      << rect->length << endl
+    //      << rect->breadth << endl;
 
     return 0;
 }
