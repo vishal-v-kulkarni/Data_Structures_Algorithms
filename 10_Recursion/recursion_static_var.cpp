@@ -8,7 +8,7 @@ int fun2(int n)
 
     if (n > 0)
     {
-        return fun(n - 1) + n;
+        return fun2(n - 1) + n;
     }
     return 0;
 }
@@ -19,7 +19,7 @@ int fun2(int n)
 int fun(int n)
 {
 
-    static int x = 0;
+    static int x = 0; // Only initialized to 0 once, the very first time this line is hit
 
     if (n > 0)
     {
