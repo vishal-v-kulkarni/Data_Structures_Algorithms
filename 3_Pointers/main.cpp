@@ -64,6 +64,11 @@ int main()
     delete[] Q; // For array [], else just the variable name
     // free(Q); This is in C
 
+    // Trying to declare a pointer to a single integer in HEAP- REVISION
+    int *p6 = (int *)malloc(sizeof(int));
+
+    *p6 = 10;
+    cout << "This is a single integer on HEAP: " << *p6 << endl;
     // Size of the pointer is INdependent of the data type
 
     int *p1;
