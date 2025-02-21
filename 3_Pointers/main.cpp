@@ -67,8 +67,8 @@ int main()
     // Trying to declare a pointer to a single integer in HEAP- REVISION
     int *p6 = (int *)malloc(sizeof(int));
 
-    *p6 = 10;
-    cout << "This is a single integer on HEAP: " << *p6 << endl;
+    *p6 = 10;                                                    // OR p[0] = 10
+    cout << "This is a single integer on HEAP: " << *p6 << endl; // or p6[0]
     // Size of the pointer is INdependent of the data type
 
     int *p1;
