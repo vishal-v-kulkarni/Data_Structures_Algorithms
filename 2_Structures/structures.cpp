@@ -18,7 +18,7 @@ int main()
     r1.breadth = 10;
     r1.x = 'a';
 
-    struct Rectangle r2 = {10, 5};
+    struct Rectangle r2 = {10, 5, 'b'};
 
     cout << sizeof(r1) << endl;
 
