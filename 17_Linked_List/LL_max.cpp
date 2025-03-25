@@ -37,7 +37,7 @@ int max(struct Node *p)
 {
     int max = INT_MIN;
 
-    while (p) //
+    while (p) // or while (p != NULL)
     {
         if (p->data > max)
             max = p->data;
