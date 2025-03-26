@@ -9,7 +9,7 @@ struct Node
 {
     int data;
     struct Node *next;
-} *first = NULL;
+} *first = NULL, *last = NULL;
 
 void create(int A[], int n)
 {
@@ -47,14 +47,14 @@ int count(struct Node *p)
 }
 
 // Insertion based on position
-Node *insert(Node *p, int position, int data, int length)
+Node *insert(Node *p, int position, int data)
 {
     // New node
     Node *t = new Node;
     t->data = data;
     t->next = NULL;
 
-    if (position < 0 || position > length)
+    if (position < 0 || position > count(p))
         return NULL;
 
     if (position == 0)
@@ -76,6 +76,40 @@ Node *insert(Node *p, int position, int data, int length)
     return t;
 }
 
+// Not optimal - Because have to traverse everytime to the last.
+void insertLast(Node *p, int data)
+{
+    // New node
+    Node *t = new Node;
+    t->data = data;
+    t->next = NULL;
+
+    int length = count(p);
+
+    for (int i = 1; i < length; i++)
+    {
+        p = p->next;
+    }
+    t->next = p->next;
+    p->next = t;
+}
+
+void insertLastOpt(int data)
+{
+    // New node
+    Node *t = new Node;
+    t->data = data;
+    t->next = NULL;
+
+    if (first == NULL && last == NULL)
+        first = last = t;
+    else
+    {
+        last->next = t;
+        last = t;
+    }
+}
+
 void display(struct Node *p)
 {
     while (p != NULL)
@@ -87,36 +121,54 @@ void display(struct Node *p)
 
 int main()
 {
-    int A[] = {3, 2, 7, 4, 5};
-    create(A, 5);
-    int length = count(first);
+    // For insert either use this or start with index 0 as given below.
+    // int A[] = {3, 2, 7, 4, 5};
+    // create(A, 5);
 
-    cout << "Display before insertion: " << endl;
+    // 3 Nodes creation to test InsertLast
+    // first = insert(first, 0, 3);
+    // insert(first, 1, 4);
+    // insert(first, 2, 5);
+
+    // Updating last node to avoid traversing.
+    //  Node *p = first;
+    //  while (p->next)
+    //  {
+    //      p = p->next;
+    //  }
+    //  last = p;
+
+    // We can directly start with this from 1st node creation.
+    insertLastOpt(8);
+    insertLastOpt(7);
+    insertLastOpt(6);
+
+    cout << "Display - insertion: " << endl;
     display(first);
 
-    int position;
-    int data;
+    // int position;
+    // int data;
 
-    cout << "\nPlease enter the position to insert a node: \n";
-    cin >> position;
+    // cout << "\nPlease enter the position to insert a node: \n";
+    // cin >> position;
 
-    cout << "Please enter the data to be inserted into the node: \n";
-    cin >> data;
+    // cout << "Please enter the data to be inserted into the node: \n";
+    // cin >> data;
 
-    Node *p = insert(first, position, data, length);
+    // Node *p = insert(first, position, data);
 
-    if (position == 0) // Head position, then update the head/first.
-        first = p;
+    // if (position == 0) // Head position, then update the head/first.
+    //     first = p;
 
-    if (p)
-    {
-        cout << "\nNode inserted at position, " << position << endl;
-        cout << "Display after insertion: " << endl;
-        display(first);
-    }
+    // if (p)
+    // {
+    //     cout << "\nNode inserted at position, " << position << endl;
+    //     cout << "Display after insertion: " << endl;
+    //     display(first);
+    // }
 
-    else
-        cout << "\nNode could not be inserted because of wrong position" << endl;
+    // else
+    //     cout << "\nNode could not be inserted because of wrong position" << endl;
 
     return 0;
 }
