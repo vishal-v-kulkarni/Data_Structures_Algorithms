@@ -53,6 +53,20 @@ void display(struct Node *p)
     }
 }
 
+// Reversing the LL using recursion
+void reverseRecursion(Node *p, Node *q)
+{
+    if (p != NULL)
+    {
+        reverseRecursion(p->next, p);
+        p->next = q;
+    }
+    else
+    {
+        first = q;
+    }
+}
+
 // Reversing the LL by reversing the Links.
 void reverseLinks(Node *p)
 {
@@ -102,7 +116,8 @@ int main()
     create(A, 5);
 
     // reverseElements(first);
-    reverseLinks(first);
+    // reverseLinks(first);
+    reverseRecursion(first, NULL);
 
     display(first);
 
