@@ -10,7 +10,7 @@ bool IsPalindrome(string inputString)
     int i = 0;
     int l = inputString.length() - 1;
 
-    while (i <= l)
+    while (i < l)
     {
         if (inputString[i] != inputString[l])
             return false;
