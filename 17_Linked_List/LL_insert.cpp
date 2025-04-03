@@ -19,7 +19,7 @@ void create(int A[], int n)
     first->data = A[0];
     first->next = NULL;
 
-    last = first; // Last will be initially pointing to last
+    last = first; // Last will be initially pointing to first
 
     for (int i = 1; i < n; i++)
     {

@@ -20,7 +20,7 @@ Node *create(int A[], int n)
     p->data = A[0];
     p->next = NULL;
 
-    last = p; // Last will be initially pointing to last
+    last = p; // Last will be initially pointing to first
 
     for (int i = 1; i < n; i++)
     {
