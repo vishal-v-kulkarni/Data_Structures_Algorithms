@@ -65,7 +65,7 @@ bool detectLoop(Node *p)
     if (p == NULL || p->next == NULL)
         return false;
 
-    while (fast != NULL && fast->next != NULL)
+    while (fast != NULL && slow != NULL)
     {
         slow = slow->next;
         fast = fast->next->next; // OR fast = fast->next; fast = fast? fast->next : fast;
