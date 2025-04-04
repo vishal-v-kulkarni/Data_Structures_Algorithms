@@ -117,6 +117,44 @@ void create(int A[], int n)
     }
 }
 
+void deleteNode(Node *p, int pos)
+{
+
+    if (pos < 0 || pos > count(head))
+        return;
+
+    if (pos == 1)
+    {
+        while (p->next != head)
+            p = p->next;
+
+        if (p == head)
+        {
+            delete head;
+            head = NULL;
+        }
+        else
+        {
+            p->next = head->next;
+            delete head;
+            head = p->next;
+        }
+    }
+    else
+    {
+        Node *q = NULL;
+        for (int i = 0; i < pos - 1; i++)
+        {
+            q = p;
+            p = p->next;
+        }
+
+        q->next = p->next;
+        p->next = NULL;
+        delete p;
+    }
+}
+
 int main()
 {
     int A[5] = {2, 5, 9, 1, 8};
@@ -126,6 +164,10 @@ int main()
     cout << endl;
 
     insert(head, 5, 10);
+    displayRec(head);
+    cout << endl;
+
+    deleteNode(head, 1);
 
     displayRec(head);
     // cout << count(head);
