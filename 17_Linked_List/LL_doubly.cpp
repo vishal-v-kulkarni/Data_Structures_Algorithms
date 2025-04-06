@@ -113,6 +113,60 @@ void insert(Node *p, int pos, int x)
     }
 }
 
+void deleteNode(Node *p, int pos)
+{
+
+    int count = length(p);
+    if (pos == 1)
+    {
+        first = first->next;
+
+        if (first)
+            first->prev = NULL;
+
+        delete p;
+    }
+    else if (pos > 1 && pos <= count)
+    {
+        for (int i = 1; i < pos && p; i++) // Check the condition of p!=NULL for wrong INDEX instead of checking position with length
+        {
+            p = p->next;
+        }
+
+        if (p) // Check the condition of p!=NULL for wrong INDEX instead of checking position with length
+        {
+            p->prev->next = p->next;
+            if (p->next)
+            {
+                p->next->prev = p->prev;
+            }
+
+            p->next = NULL;
+            p->prev = NULL;
+
+            delete p;
+        }
+    }
+}
+
+void reverse(Node *p)
+{
+
+    Node *temp = NULL;
+
+    while (p)
+    {
+        temp = p->next;
+        p->next = p->prev;
+        p->prev = temp;
+
+        p = p->prev;
+
+        if (p != NULL && p->next == NULL)
+            first = p;
+    }
+}
+
 int main()
 {
     int A[] = {3, 2, 7, 4, 5};
@@ -131,6 +185,14 @@ int main()
     display(first);
     cout << endl;
 
-    displayReverse(first);
+    deleteNode(first, 1);
+    display(first);
+    cout << endl;
+
+    reverse(first);
+    display(first);
+    cout << endl;
+
+    // displayReverse(first);
     return 0;
 }
