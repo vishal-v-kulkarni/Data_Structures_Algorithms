@@ -43,6 +43,7 @@ int count(struct Node *p)
     return count;
 }
 
+// O(n) - scanning it once
 int findMiddle(Node *p)
 {
     Node *q = first;
